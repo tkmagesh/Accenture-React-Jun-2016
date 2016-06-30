@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 class Calculator extends Component {
 	triggerAdd (){
+		window.calculatorRoot = this.refs.calculatorRoot;
 		var n1 = parseInt(this.refs.txtNumber1.value,10),
 			n2 = parseInt(this.refs.txtNumber2.value,10)
 		this.props.actions.add(n1,n2);
@@ -23,7 +24,7 @@ class Calculator extends Component {
 	}
 	render (){
 		return (
-			<div>
+			<div ref="calculatorRoot">
 				<h2>Calculator</h2>
 				<h3>{this.props.data.operationCount}</h3>
 				<input type="text" ref="txtNumber1"/>
